@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scribe & Ink | Fine Writing Instruments & Specialty Paper</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Playfair Display (Artistic/Formal Serif) & Montserrat (Clean Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    <!-- Custom Style Sheet for Artistic & Formal Aesthetic -->
+    <style>
+        :root {
+            /* Palette: Deep Navy Blue, Warm Parchment/Cream, Antique Gold Accent, Charcoal Text */
+            --bg-parchment: #fcfaf7;
+            --bg-card: #ffffff;
+            --primary-navy: #1a2b3c;
+            --secondary-navy: #0f1c29;
+            --accent-gold: #c5a059;
+            --accent-gold-hover: #b08d46;
+            --text-dark: #2c3036;
+            --text-muted: #6c757d;
+            --border-subtle: #e8e2d8;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-parchment);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Typography Override */
+        h1, h2, h3, h4, h5, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Top Bar Announcement */
+        .announcement-bar {
+            background-color: var(--secondary-navy);
+            color: #dcd6cd;
+            font-size: 0.825rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: rgba(252, 250, 247, 0.95) !important;
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-navy) !important;
+            letter-spacing: 1px;
+        }
+
+        .navbar-brand span {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 0.925rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-navy) !important;
+            margin: 0 6px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-gold) !important;
+        }
+
+        /* Search & Icon Action Buttons */
+        .search-input {
+            border-radius: 20px 0 0 20px;
+            border: 1px solid var(--border-subtle);
+            background-color: #ffffff;
+            font-size: 0.875rem;
+            padding-left: 1rem;
+        }
+
+        .search-input:focus {
+            box-shadow: none;
+            border-color: var(--accent-gold);
+        }
+
+        .search-btn {
+            border-radius: 0 20px 20px 0;
+            background-color: var(--primary-navy);
+            color: var(--accent-gold);
+            border: 1px solid var(--primary-navy);
+            transition: all 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            border-color: var(--accent-gold);
+        }
+
+        .cart-icon-btn {
+            position: relative;
+            color: var(--primary-navy);
+            font-size: 1.25rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .cart-icon-btn:hover {
+            color: var(--accent-gold);
+        }
+
+        .cart-badge {
+            font-family: 'Montserrat', sans-serif;
+            position: absolute;
+            top: -6px;
+            right: -10px;
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            font-size: 0.65rem;
+            font-weight: 700;
+            border-radius: 50%;
+            padding: 3px 6px;
+        }
+
+        /* Hero Section (#hero) */
+        #hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(26, 43, 60, 0.92), rgba(15, 28, 41, 0.88)), 
+                        url('https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            color: #ffffff;
+            padding: 100px 0 120px 0;
+            margin-bottom: 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        }
+
+        .hero-title {
+            font-size: 3.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #f7f4ee;
+        }
+
+        .hero-title span {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            font-weight: 300;
+            color: #d1d8e0;
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Gold Decorative Divider */
+        .artistic-divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), transparent);
+            margin: 1.25rem 0 2rem 0;
+        }
+
+        .btn-custom-gold {
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 12px 28px;
+            border-radius: 4px;
+            border: 1px solid var(--accent-gold);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        }
+
+        .btn-custom-gold:hover {
+            background-color: var(--accent-gold-hover);
+            border-color: var(--accent-gold-hover);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+        }
+
+        .btn-custom-outline {
+            border: 1px solid #ffffff;
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 12px 28px;
+            border-radius: 4px;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom-outline:hover {
+            background-color: #ffffff;
+            color: var(--primary-navy);
+            transform: translateY(-2px);
+        }
+
+        /* Heading Section with Stylized Divider */
+        .section-header {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            letter-spacing: 0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .stylized-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem auto 0 auto;
+        }
+
+        .stylized-divider::before,
+        .stylized-divider::after {
+            content: "";
+            width: 70px;
+            height: 1px;
+            background-color: var(--accent-gold);
+        }
+
+        .stylized-divider i {
+            color: var(--accent-gold);
+            margin: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        /* Product Cards Styling */
+        .product-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(26, 43, 60, 0.08);
+            border-color: rgba(197, 160, 89, 0.4);
+        }
+
+        .badge-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: rgba(26, 43, 60, 0.85);
+            color: var(--accent-gold);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 3px;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+
+        .product-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 240px;
+            background-color: #f4efe6;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.06);
+        }
+
+        .product-card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .product-description {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .product-rating {
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-rating span {
+            color: var(--text-muted);
+            margin-left: 5px;
+            font-size: 0.75rem;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .btn-card-action {
+            background-color: transparent;
+            color: var(--primary-navy);
+            border: 1px solid var(--primary-navy);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 14px;
+            border-radius: 4px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-card-action:hover {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+        }
+
+        .btn-card-cart {
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            border: 1px solid var(--accent-gold);
+            font-size: 0.86rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-card-cart:hover {
+            background-color: var(--accent-gold-hover);
+            color: #ffffff;
+        }
+
+        /* Features Banner Section */
+        .features-banner {
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            padding: 60px 0;
+            margin-top: 5rem;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-desc {
+            font-size: 0.85rem;
+            color: #a0aec0;
+            margin-bottom: 0;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--secondary-navy);
+            color: #b0b9c3;
+            font-size: 0.9rem;
+            padding-top: 60px;
+            padding-bottom: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-title {
+            color: #ffffff;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 3px;
+        }
+
+        .newsletter-input {
+            background-color: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            font-size: 0.875rem;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .newsletter-input:focus {
+            background-color: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            box-shadow: none;
+            border-color: var(--accent-gold);
+        }
+
+        .newsletter-btn {
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            border: 1px solid var(--accent-gold);
+            font-weight: 600;
+            border-radius: 0 4px 4px 0;
+            transition: background-color 0.2s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--accent-gold-hover);
+            color: #ffffff;
+        }
+
+        .social-icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.06);
+            color: #ffffff;
+            border-radius: 50%;
+            margin-right: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon-btn:hover {
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 25px;
+            margin-top: 40px;
+            font-size: 0.825rem;
+        }
+
+        .payment-icons i {
+            font-size: 1.5rem;
+            margin-left: 12px;
+            color: #d1d8e0;
+        }
+
+        /* Toast notification for interaction */
+        .cart-toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1050;
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            border-left: 4px solid var(--accent-gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            display: none;
+            border-radius: 4px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991.98px) {
+            #hero {
+                padding: 60px 0 80px 0;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .artistic-divider {
+                margin: 1.25rem auto 2rem auto;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .search-form-container {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Notification Toast for Dynamic Cart Feedback -->
+    <div id="cartToast" class="cart-toast p-3" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+                <i class="fa-solid fa-circle-check text-warning fs-5 me-2"></i>
+                <span id="toastMessage" class="small">Item added to your shopping cart.</span>
+            </div>
+            <button type="button" class="btn-close btn-close-white ms-3" onclick="dismissToast()"></button>
+        </div>
+    </div>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar py-2 text-center">
+        <div class="container">
+            <span><i class="fa-solid fa-feather-pointed me-2"></i> Enjoy Complimentary Nationwide Shipping on Orders Over ₱5,000</span>
+        </div>
+    </div>
+
+    <!-- 1. NAVBAR SECTION -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <!-- Brand Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fa-solid fa-pen-nib me-2 text-warning"></i> Scribe <span>&</span> Ink
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links & Search -->
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pens">Pens</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#paper">Paper</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ink">Ink</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+
+                <!-- Search Bar & Cart Action -->
+                <div class="d-flex align-items-center gap-3">
+                    <form class="d-flex search-form-container" role="search" onsubmit="event.preventDefault();">
+                        <input class="form-control search-input" type="search" placeholder="Search fountain pens, journals..." aria-label="Search">
+                        <button class="btn search-btn px-3" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+
+                    <!-- Cart Icon with Badge -->
+                    <a href="javascript:void(0)" class="cart-icon-btn ms-2" title="View Cart" onclick="triggerCartToast('Shopping Cart viewed')">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-badge" id="cartCount">3</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION (id="hero") -->
+    <section id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <p class="text-uppercase tracking-widest text-warning fw-semibold mb-2" style="letter-spacing: 2px; font-size: 0.85rem;">Artisan Stationery & Fine Writing</p>
+                    <h1 class="hero-title">Elevate the Art of <span>Handwritten</span> Expression.</h1>
+                    <div class="artistic-divider"></div>
+                    <p class="hero-subtitle">Discover hand-crafted fountain pens, archival specialty inks, and rich leather-bound journals designed to turn every thought into a lasting masterpiece.</p>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#cards-section" class="btn btn-custom-gold">Explore Collection <i class="fa-solid fa-arrow-right ms-2 fs-6"></i></a>
+                        <a href="#cards-section" class="btn btn-custom-outline">Shop Best Sellers</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <!-- Artistic Frame Accent -->
+                    <div class="position-relative p-3">
+                        <div style="border: 1px solid var(--accent-gold); border-radius: 8px; padding: 10px;">
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop" alt="Fine Fountain Pen and Leather Journal" class="img-fluid rounded shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. HEADING SECTION -->
+    <section class="container" id="cards-section">
+        <div class="section-header">
+            <span class="section-subtitle">Exquisite Handpicked Selection</span>
+            <h2 class="section-title">Curated Essentials for Writers & Artists</h2>
+            <div class="stylized-divider">
+                <i class="fa-solid fa-pen-nib"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CARDS SECTION (Product Showcase Grid) -->
+    <section class="container mb-5">
+        <div class="row g-4">
+            
+            <!-- Card 1: Premium Fountain Pen -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <span class="badge-category">Fountain Pen</span>
+                    <div class="product-img-wrapper">
+                        <img src="https://rustans.com/cdn/shop/products/1324471_1.jpg?v=1632710543&width=540" class="product-img" alt="The Royal Meisterstück Pen">
+                    </div>
+                    <div class="product-card-body">
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>(48)</span>
+                        </div>
+                        <h3 class="product-title">Montblanc Meisterstück</h3>
+                        <p class="product-description">The iconic Montblanc Meisterstück is a luxury fountain pen handcrafted from deep black resin with gold-coated details.</p>
+                        <div class="d-flex align-items-center justify-content-between mt-auto">
+                            <span class="product-price">₱65,000.00</span>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-card-action" title="View Details" onclick="triggerCartToast('Viewing details for Sovereign Pen')"><i class="fa-solid fa-eye"></i></button>
+                                <button class="btn btn-card-cart" onclick="addToCart('The Royal Sovereign Pen')"><i class="fa-solid fa-cart-plus me-1"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Leather Journal -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <span class="badge-category">Notebook</span>
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?q=80&w=600&auto=format&fit=crop" class="product-img" alt="Florentine Leather Journal">
+                    </div>
+                    <div class="product-card-body">
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <span>(32)</span>
+                        </div>
+                        <h3 class="product-title">Florentine Leather Journal</h3>
+                        <p class="product-description">Full-grain Italian leather encasing 240 pages of fountain-pen-friendly cotton rag paper.</p>
+                        <div class="d-flex align-items-center justify-content-between mt-auto">
+                            <span class="product-price">₱4,500.00</span>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-card-action" title="View Details" onclick="triggerCartToast('Viewing details for Florentine Journal')"><i class="fa-solid fa-eye"></i></button>
+                                <button class="btn btn-card-cart" onclick="addToCart('Florentine Leather Journal')"><i class="fa-solid fa-cart-plus me-1"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Specialty Ink -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <span class="badge-category">Bottled Ink</span>
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop" class="product-img" alt="Midnight Azure Shimmer Ink">
+                    </div>
+                    <div class="product-card-body">
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>(56)</span>
+                        </div>
+                        <h3 class="product-title">Midnight Azure Ink (50ml)</h3>
+                        <p class="product-description">Archival quality deep blue ink infused with subtle gold shimmer for mesmerizing calligraphy.</p>
+                        <div class="d-flex align-items-center justify-content-between mt-auto">
+                            <span class="product-price">₱2,000.00</span>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-card-action" title="View Details" onclick="triggerCartToast('Viewing details for Midnight Azure Ink')"><i class="fa-solid fa-eye"></i></button>
+                                <button class="btn btn-card-cart" onclick="addToCart('Midnight Azure Ink')"><i class="fa-solid fa-cart-plus me-1"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Parchment Stationery Set -->
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="product-card">
+                    <span class="badge-category">Paper Set</span>
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1586075010923-2dd4570fb338?q=80&w=600&auto=format&fit=crop" class="product-img" alt="Artisan Deckle Edge Paper">
+                    </div>
+                    <div class="product-card-body">
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span>(19)</span>
+                        </div>
+                        <h3 class="product-title">Botanical Deckle Stationery</h3>
+                        <p class="product-description">Heavyweight handmade cotton paper featuring natural deckled edges and matching envelopes.</p>
+                        <div class="d-flex align-items-center justify-content-between mt-auto">
+                            <span class="product-price">₱2,700.00</span>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-card-action" title="View Details" onclick="triggerCartToast('Viewing details for Deckle Paper')"><i class="fa-solid fa-eye"></i></button>
+                                <button class="btn btn-card-cart" onclick="addToCart('Botanical Deckle Stationery')"><i class="fa-solid fa-cart-plus me-1"></i> Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Value Proposition / Features Section -->
+    <section class="features-banner">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <i class="fa-solid fa-feather feature-icon"></i>
+                    <h4 class="feature-title">Master Craftsmanship</h4>
+                    <p class="feature-desc">Sourced from historic workshops in Italy, Germany, and Japan.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa-solid fa-box-open feature-icon"></i>
+                    <h4 class="feature-title">Elegant Gift Packaging</h4>
+                    <p class="feature-desc">Every item arrives wrapped in signature wax-sealed boxes.</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa-solid fa-award feature-icon"></i>
+                    <h4 class="feature-title">Lifetime Guarantee</h4>
+                    <p class="feature-desc">Our writing instruments are crafted to last for generations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER SECTION -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                
+                <!-- Brand Info Column -->
+                <div class="col-lg-4 col-md-6">
+                    <a class="navbar-brand text-white d-inline-block mb-3" href="#">
+                        <i class="fa-solid fa-pen-nib me-2 text-warning"></i> 
+                        <span style="color: #a0aec0;">Scribe</span> 
+                        <span class="text-warning">&</span> 
+                        <span style="color: #a0aec0;">Ink</span>
+                    </a>
+                    <p class="pe-lg-4 text-muted" style="color: #a0aec0 !important;">Dedicated to preserving the fine art of handwriting. Providing discerning authors, artists, and collectors with extraordinary writing tools since 1998.</p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="#" class="social-icon-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigation Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Navigation</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#pens">Fountain Pens</a></li>
+                        <li><a href="#paper">Specialty Paper</a></li>
+                        <li><a href="#ink">Calligraphy Inks</a></li>
+                        <li><a href="#about">Our Heritage</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">Client Care</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Nib Fitting Guide</a></li>
+                        <li><a href="#">Bespoke Engraving</a></li>
+                        <li><a href="#">FAQ & Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Sign Up -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">The Scribe Gazette</h5>
+                    <p class="text-muted small" style="color: #a0aec0 !important;">Subscribe to receive exclusive previews of limited fountain pen releases and calligraphic tips.</p>
+                    <form onsubmit="event.preventDefault(); triggerCartToast('Thank you for subscribing to our gazette!');">
+                        <div class="input-group mb-3">
+                            <style>
+                                .custom-ph::placeholder { color: #a0aec0 !important; opacity: 1; }
+                            </style>
+                            <input type="email" class="form-control newsletter-input px-3 custom-ph" placeholder="Enter your email address" required>
+                            <button class="btn newsletter-btn px-3" type="submit">Join</button>
+                        </div>
+                    </form>
+                    <small class="d-block" style="font-size: 0.75rem; color: #a0aec0;">
+                        We respect your privacy. Unsubscribe at any time.
+                    </small>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <p class="mb-2 mb-md-0" style="color: #a0aec0 !important;">&copy; 2026 Scribe & Ink Fine Stationery. All rights reserved.</p>
+                <div class="payment-icons d-flex align-items-center">
+                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                    <i class="fa-brands fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fa-brands fa-cc-amex" title="American Express"></i>
+                    <i class="fa-brands fa-cc-paypal" title="PayPal"></i>
+                    <i class="fa-brands fa-cc-apple-pay" title="Apple Pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Interactivity Script -->
+    <script>
+        let cartItemsCount = 3;
+
+        // Interactive "Add to Cart" function
+        function addToCart(productName) {
+            cartItemsCount++;
+            document.getElementById('cartCount').innerText = cartItemsCount;
+            triggerCartToast(`"<sup></sup>${productName}" added to your bag.`);
+        }
+
+        // Show feedback notification
+        function triggerCartToast(message) {
+            const toast = document.getElementById('cartToast');
+            const toastMsg = document.getElementById('toastMessage');
+            toastMsg.innerText = message;
+            toast.style.display = 'block';
+
+            setTimeout(() => {
+                dismissToast();
+            }, 3500);
+        }
+
+        function dismissToast() {
+            document.getElementById('cartToast').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
